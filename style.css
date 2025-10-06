@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111;
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Pixel cake confetti background */
+.pixel-cake {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(#ffcc99, #ff9999);
+  border: 2px solid #000;
+  border-radius: 2px;
+  image-rendering: pixelated;
+  animation: floatCake linear forwards;
+}
+
+.pixel-cake::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 6px;
+  width: 6px;
+  height: 8px;
+  background: #66ccff;
+  border: 2px solid #000;
+}
+
+.pixel-cake::after {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 8px;
+  width: 4px;
+  height: 4px;
+  background: #ffcc33;
+  border: 1px solid #000;
+  animation: flicker 0.2s infinite;
+}
+
+@keyframes floatCake {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flicker {
+  0%, 100% { background: #ffcc33; }
+  50% { background: #ff9933; }
+}
+
+/* Main title */
+.title {
+  font-size: 28px;
+  color: #ff66b3;
+  text-shadow: 0 0 10px #ff3399, 0 0 20px #ff66b3;
+  margin-bottom: 50px;
+  letter-spacing: 3px;
+}
+
+/* Cake structure */
+.cake {
+  position: relative;
+  width: 150px;
+  height: 120px;
+  margin: 0 auto;
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+.cake.pop {
+  transform: scale(1);
+}
+
+.plate {
+  position: absolute;
+  bottom: 0;
+  width: 170px;
+  height: 25px;
+  background: #ccc;
+  left: -10px;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px #999 inset;
+}
+
+.layer {
+  position: absolute;
+  left: 0;
+  border: 3px solid #000;
+  image-rendering: pixelated;
+}
+
+.layer-bottom {
+  bottom: 25px;
+  width: 150px;
+  height: 40px;
+  background: #ff9999;
+  box-shadow: 0 0 0 3px #cc6666 inset;
+}
+
+.layer-middle {
+  bottom: 65px;
+  width: 130px;
+  height: 25px;
+  left: 10px;
+  background: #ffcc99;
+  box-shadow: 0 0 0 3px #cc9966 inset;
+}
+
+.layer-top {
+  bottom: 90px;
+  width: 110px;
+  height: 20px;
+  left: 20px;
+  background: #ffff99;
+  box-shadow: 0 0 0 3px #cccc66 inset;
+}
+
+.candle {
+  position: absolute;
+  bottom: 110px;
+  left: 70px;
+  width: 12px;
+  height: 30px;
+  background: #66ccff;
+  border: 2px solid #000;
+  display: flex;
+  justify-content: center;
+}
+
+.flame {
+  position: absolute;
+  top: -14px;
+  width: 12px;
+  height: 12px;
+  background: #ff9933;
+  border: 2px solid #000;
+  border-radius: 2px;
+  animation: flicker 0.15s infinite;
+}
+
+/* Button */
+#popBtn {
+  margin-top: 60px;
+  padding: 16px 28px;
+  font-family: 'Press Start 2P', cursive;
+  background: #ff66b3;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 3px #000;
+  transition: all 0.2s ease;
+}
+
+#popBtn:hover {
+  background: #ff99cc;
+  transform: scale(1.05);
+}
+.footer {
+  position: fixed;
+  bottom: 15px;
+  font-size: 10px;
+  color: #ff99cc;
+  text-shadow: 0 0 8px #ff66b3, 0 0 12px #ff3399;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  z-index: 5;
+}
